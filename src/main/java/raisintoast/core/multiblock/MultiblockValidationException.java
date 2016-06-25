@@ -1,4 +1,4 @@
-package erogenousbeef.core.multiblock;
+package raisintoast.core.multiblock;
 
 /**
  * An exception thrown when trying to validate a multiblock. Requires a string describing why the multiblock

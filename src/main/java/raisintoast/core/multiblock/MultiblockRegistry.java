@@ -1,10 +1,10 @@
-package erogenousbeef.core.multiblock;
+package raisintoast.core.multiblock;
 
 import java.util.HashMap;
 import java.util.Set;
 
+import raisintoast.core.common.RaisinToastCoreLog;
 import net.minecraft.world.World;
-import erogenousbeef.core.common.BeefCoreLog;
 
 /**
  * This is a very static singleton registry class which directs incoming events to sub-objects, which
@@ -100,7 +100,7 @@ public class MultiblockRegistry {
 			registries.get(world).addDeadController(controller);
 		}
 		else {
-			BeefCoreLog.warning("Controller %d in world %s marked as dead, but that world is not tracked! Controller is being ignored.", controller.hashCode(), world);
+			RaisinToastCoreLog.warning("Controller %d in world %s marked as dead, but that world is not tracked! Controller is being ignored.", controller.hashCode(), world);
 		}
 	}
 

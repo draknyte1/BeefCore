@@ -1,4 +1,4 @@
-package erogenousbeef.core.common;
+package raisintoast.core.common;
 
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraftforge.common.util.ForgeDirection;

@@ -1,4 +1,4 @@
-package erogenousbeef.core.multiblock;
+package raisintoast.core.multiblock;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,11 +8,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import raisintoast.core.common.RaisinToastCoreLog;
+import raisintoast.core.common.CoordTriplet;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-import erogenousbeef.core.common.BeefCoreLog;
-import erogenousbeef.core.common.CoordTriplet;
 
 /**
  * This class manages all the multiblock controllers that exist in a given world,
@@ -189,7 +189,7 @@ public class MultiblockWorldRegistry {
 				}
 				
 				if(newMaster == null) {
-					BeefCoreLog.fatal("Multiblock system checked a merge pool of size %d, found no master candidates. This should never happen.", mergePool.size());
+					RaisinToastCoreLog.fatal("Multiblock system checked a merge pool of size %d, found no master candidates. This should never happen.", mergePool.size());
 				}
 				else {
 					// Merge all the other machines into the master machine, then unregister them
@@ -240,7 +240,7 @@ public class MultiblockWorldRegistry {
 				// Go through any controllers which have marked themselves as potentially dead.
 				// Validate that they are empty/dead, then unregister them.
 				if(!controller.isEmpty()) {
-					BeefCoreLog.fatal("Found a non-empty controller. Forcing it to shed its blocks and die. This should never happen!");
+					RaisinToastCoreLog.fatal("Found a non-empty controller. Forcing it to shed its blocks and die. This should never happen!");
 					detachedParts.addAll(controller.detachAllBlocks());
 				}
 

@@ -1,4 +1,4 @@
-package erogenousbeef.core.multiblock;
+package raisintoast.core.multiblock;
 
 import net.minecraft.client.Minecraft;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;

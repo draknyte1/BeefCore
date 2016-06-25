@@ -1,4 +1,4 @@
-package erogenousbeef.core.multiblock;
+package raisintoast.core.multiblock;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;

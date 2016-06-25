@@ -1,10 +1,10 @@
-package erogenousbeef.core.multiblock.rectangular;
+package raisintoast.core.multiblock.rectangular;
 
+import raisintoast.core.common.CoordTriplet;
+import raisintoast.core.multiblock.MultiblockControllerBase;
+import raisintoast.core.multiblock.MultiblockTileEntityBase;
+import raisintoast.core.multiblock.MultiblockValidationException;
 import net.minecraftforge.common.util.ForgeDirection;
-import erogenousbeef.core.common.CoordTriplet;
-import erogenousbeef.core.multiblock.MultiblockControllerBase;
-import erogenousbeef.core.multiblock.MultiblockTileEntityBase;
-import erogenousbeef.core.multiblock.MultiblockValidationException;
 
 public abstract class RectangularMultiblockTileEntityBase extends
 		MultiblockTileEntityBase {

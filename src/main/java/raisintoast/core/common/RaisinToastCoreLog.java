@@ -1,10 +1,10 @@
-package erogenousbeef.core.common;
+package raisintoast.core.common;
 
 import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.FMLLog;
 
-public class BeefCoreLog {
+public class RaisinToastCoreLog {
 	
 	private static final String CHANNEL = "BeefCore";
 

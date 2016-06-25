@@ -1,16 +1,16 @@
-package erogenousbeef.core.multiblock;
+package raisintoast.core.multiblock;
 
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
+import raisintoast.core.common.RaisinToastCoreLog;
+import raisintoast.core.common.CoordTriplet;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
-import erogenousbeef.core.common.BeefCoreLog;
-import erogenousbeef.core.common.CoordTriplet;
 
 /**
  * This class contains the base logic for "multiblock controllers". Conceptually, they are
@@ -110,7 +110,7 @@ public abstract class MultiblockControllerBase {
 		CoordTriplet coord = part.getWorldLocation();
 
 		if(!connectedParts.add(part)) {
-			BeefCoreLog.warning("[%s] Controller %s is double-adding part %d @ %s. This is unusual. If you encounter odd behavior, please tear down the machine and rebuild it.", (worldObj.isRemote?"CLIENT":"SERVER"), hashCode(), part.hashCode(), coord);
+			RaisinToastCoreLog.warning("[%s] Controller %s is double-adding part %d @ %s. This is unusual. If you encounter odd behavior, please tear down the machine and rebuild it.", (worldObj.isRemote?"CLIENT":"SERVER"), hashCode(), part.hashCode(), coord);
 		}
 		
 		part.onAttached(this);
@@ -221,7 +221,7 @@ public abstract class MultiblockControllerBase {
 		// Strip out this part
 		onDetachBlock(part);
 		if(!connectedParts.remove(part)) {
-			BeefCoreLog.warning("[%s] Double-removing part (%d) @ %d, %d, %d, this is unexpected and may cause problems. If you encounter anomalies, please tear down the reactor and rebuild it.", worldObj.isRemote?"CLIENT":"SERVER", part.hashCode(), part.xCoord, part.yCoord, part.zCoord);
+			RaisinToastCoreLog.warning("[%s] Double-removing part (%d) @ %d, %d, %d, this is unexpected and may cause problems. If you encounter anomalies, please tear down the reactor and rebuild it.", worldObj.isRemote?"CLIENT":"SERVER", part.hashCode(), part.xCoord, part.yCoord, part.zCoord);
 		}
 
 		if(connectedParts.isEmpty()) {
@@ -431,7 +431,7 @@ public abstract class MultiblockControllerBase {
 	/**
 	 * Driver for the update loop. If the machine is assembled, runs
 	 * the game logic update method.
-	 * @see erogenousbeef.core.multiblock.MultiblockControllerBase#update() //TODO Fix this Javadoc
+	 * @see raisintoast.core.multiblock.MultiblockControllerBase#update() //TODO Fix this Javadoc
 	 */
 	public final void updateMultiblockEntity() {
 		if(connectedParts.isEmpty()) {
@@ -636,7 +636,7 @@ public abstract class MultiblockControllerBase {
 		else if(res > 0) { return false; }
 		else {
 			// Strip dead parts from both and retry
-			BeefCoreLog.warning("[%s] Encountered two controllers with the same reference coordinate. Auditing connected parts and retrying.", worldObj.isRemote?"CLIENT":"SERVER");
+			RaisinToastCoreLog.warning("[%s] Encountered two controllers with the same reference coordinate. Auditing connected parts and retrying.", worldObj.isRemote?"CLIENT":"SERVER");
 			auditParts();
 			otherController.auditParts();
 			
@@ -644,8 +644,8 @@ public abstract class MultiblockControllerBase {
 			if(res < 0) { return true; }
 			else if(res > 0) { return false; }
 			else {
-				BeefCoreLog.error("My Controller (%d): size (%d), parts: %s", hashCode(), connectedParts.size(), getPartsListString());
-				BeefCoreLog.error("Other Controller (%d): size (%d), coords: %s", otherController.hashCode(), otherController.connectedParts.size(), otherController.getPartsListString());
+				RaisinToastCoreLog.error("My Controller (%d): size (%d), parts: %s", hashCode(), connectedParts.size(), getPartsListString());
+				RaisinToastCoreLog.error("Other Controller (%d): size (%d), coords: %s", otherController.hashCode(), otherController.connectedParts.size(), otherController.getPartsListString());
 				throw new IllegalArgumentException("[" + (worldObj.isRemote?"CLIENT":"SERVER") + "] Two controllers with the same reference coord that somehow both have valid parts - this should never happen!"); 
 			}
 
@@ -688,7 +688,7 @@ public abstract class MultiblockControllerBase {
 		}
 		
 		connectedParts.removeAll(deadParts);
-		BeefCoreLog.warning("[%s] Controller found %d dead parts during an audit, %d parts remain attached", worldObj.isRemote?"CLIENT":"SERVER", deadParts.size(), connectedParts.size());
+		RaisinToastCoreLog.warning("[%s] Controller found %d dead parts during an audit, %d parts remain attached", worldObj.isRemote?"CLIENT":"SERVER", deadParts.size(), connectedParts.size());
 	}
 
 	/**

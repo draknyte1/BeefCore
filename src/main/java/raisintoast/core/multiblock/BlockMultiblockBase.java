@@ -1,4 +1,4 @@
-package erogenousbeef.core.multiblock;
+package raisintoast.core.multiblock;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

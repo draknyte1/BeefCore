@@ -1,4 +1,4 @@
-package erogenousbeef.core.multiblock.rectangular;
+package raisintoast.core.multiblock.rectangular;
 
 public enum PartPosition {
 	Unknown,
